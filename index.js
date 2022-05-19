@@ -40,11 +40,19 @@ function exercise2(input1, input2) {
     return console.log("Invalid input");
   }
 
+  let previosRange = colorStock.length;
+  let rangeBetweenLowestStock = 0;
   let lowestStockIndex = 0;
   let count = 0;
 
-  for (let i = 0; i < colorStock.length; i++) {
-    if (colorStock[i] <= colorStock[lowestStockIndex]) {
+  for (let i = 1; i < colorStock.length; i++) {
+    rangeBetweenLowestStock++;
+    if (
+      colorStock[i] <= colorStock[lowestStockIndex] &&
+      previosRange >= rangeBetweenLowestStock
+    ) {
+      previosRange = rangeBetweenLowestStock;
+      rangeBetweenLowestStock = 0;
       lowestStockIndex = i;
     }
   }
@@ -69,4 +77,13 @@ function exercise2(input1, input2) {
       i++;
     }
   }
+}
+
+// exercise3("3", "2 1");
+
+function exercise3(input1, input2) {
+  const [matrixLength] = convertStringToNumberArray(input1);
+  const [x, y] = convertStringToNumberArray(input2);
+
+  console.log(matrixLength, x, y);
 }
