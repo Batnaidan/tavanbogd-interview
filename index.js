@@ -19,16 +19,15 @@ function exercise1(input) {
 
   let count = 0;
 
-  for (let i = 1; i <= x / 4; i++) {
-    for (let j = 1; j <= x / 2 - i; j++) {
-      if (i == j) {
-        continue;
-      }
-      if (x - i * 2 - j * 2 == 0) {
-        count++;
-      }
-    }
+  let xQuarter = x / 4;
+
+  if (xQuarter % 1 == 0) {
+    // If all sides are equal decrement
+    count = xQuarter - 1;
+  } else {
+    count = Math.floor(xQuarter);
   }
+
   console.log("Exercise 1 output: ", count);
 }
 
